@@ -1,10 +1,33 @@
+# Dependencies
 /vendor/
 /composer.lock
+
+# Test artifacts
 /.phpunit.cache
 /phpunit.xml
 /.phpunit.result.cache
+/coverage/
+
+# IDE
 /.idea/
 /.vscode/
-*.log
+
+# Environment & secrets
 .env
+*.pem
+
+# Logs
+*.log
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Documentation builds
+/docs/_build/
+/docs/.doctrees/
+
+# Temporary files
+*.tmp
+*.swp
+*~
