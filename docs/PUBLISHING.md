@@ -101,9 +101,9 @@ Packagist can automatically update when you push new releases.
 Your README already includes badge placeholders. Update them with real URLs:
 
 ```markdown
-[![Latest Version](https://img.shields.io/packagist/v/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
-[![License](https://img.shields.io/packagist/l/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
+[![Latest Version](https://img.shields.io/packagist/v/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
+[![License](https://img.shields.io/packagist/l/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
 ```
 
 ### 4.2 Share on Social Media
@@ -201,7 +201,7 @@ Track your package performance:
 
 - Verify minimum PHP version in composer.json
 - Check all dependencies are available
-- Test fresh install: `composer create-project mmedia/usps-oauth-php test-install`
+- Test fresh install: `composer create-project mmediasoftwarelab/usps-oauth-php test-install`
 
 ## Next Steps
 
@@ -222,5 +222,5 @@ Track your package performance:
 **Congratulations! Your package is now available to PHP developers worldwide via:**
 
 ```bash
-composer require mmedia/usps-oauth-php
+composer require mmediasoftwarelab/usps-oauth-php
 ```

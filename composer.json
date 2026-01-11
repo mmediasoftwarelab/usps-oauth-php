@@ -1,5 +1,5 @@
 {
-  "name": "mmedia/usps-oauth-php",
+  "name": "mmediasoftwarelab/usps-oauth-php",
   "description": "Modern PHP library for USPS OAuth 2.0 API - Shipping rates, labels, and tracking for the 2026+ API",
   "type": "library",
   "keywords": [

@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**mmedia/usps-oauth-php** is positioned as the premier modern PHP library for USPS's OAuth 2.0 API. Our monetization strategy balances open-source adoption with sustainable revenue through premium features, commercial support, and framework-specific integrations.
+**mmediasoftwarelab/usps-oauth-php** is positioned as the premier modern PHP library for USPS's OAuth 2.0 API. Our monetization strategy balances open-source adoption with sustainable revenue through premium features, commercial support, and framework-specific integrations.
 
 ## Core Value Proposition
 

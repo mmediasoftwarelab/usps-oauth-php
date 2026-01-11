@@ -1,8 +1,8 @@
 # USPS OAuth PHP Library
 
-[![Latest Version](https://img.shields.io/packagist/v/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
-[![PHP Version](https://img.shields.io/packagist/php-v/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
-[![License](https://img.shields.io/packagist/l/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
+[![Latest Version](https://img.shields.io/packagist/v/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
+[![PHP Version](https://img.shields.io/packagist/php-v/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
+[![License](https://img.shields.io/packagist/l/mmediasoftwarelab/usps-oauth-php.svg)](https://packagist.org/packages/mmediasoftwarelab/usps-oauth-php)
 [![Tests](https://github.com/mmediasoftwarelab/usps-oauth-php/workflows/CI/badge.svg)](https://github.com/mmediasoftwarelab/usps-oauth-php/actions)
 [![Coverage](https://codecov.io/gh/mmediasoftwarelab/usps-oauth-php/branch/main/graph/badge.svg)](https://codecov.io/gh/mmediasoftwarelab/usps-oauth-php)
 
@@ -20,7 +20,7 @@ Modern PHP library for the USPS OAuth 2.0 API (2026+). Get real-time shipping ra
 ## Installation
 
 ```bash
-composer require mmedia/usps-oauth-php
+composer require mmediasoftwarelab/usps-oauth-php
 ```
 
 ## Requirements
