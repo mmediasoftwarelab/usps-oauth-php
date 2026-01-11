@@ -3,8 +3,8 @@
 [![Latest Version](https://img.shields.io/packagist/v/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
 [![PHP Version](https://img.shields.io/packagist/php-v/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
 [![License](https://img.shields.io/packagist/l/mmedia/usps-oauth-php.svg)](https://packagist.org/packages/mmedia/usps-oauth-php)
-[![Tests](https://github.com/mmedia/usps-oauth-php/workflows/CI/badge.svg)](https://github.com/mmedia/usps-oauth-php/actions)
-[![Coverage](https://codecov.io/gh/mmedia/usps-oauth-php/branch/main/graph/badge.svg)](https://codecov.io/gh/mmedia/usps-oauth-php)
+[![Tests](https://github.com/mmediasoftwarelab/usps-oauth-php/workflows/CI/badge.svg)](https://github.com/mmediasoftwarelab/usps-oauth-php/actions)
+[![Coverage](https://codecov.io/gh/mmediasoftwarelab/usps-oauth-php/branch/main/graph/badge.svg)](https://codecov.io/gh/mmediasoftwarelab/usps-oauth-php)
 
 Modern PHP library for the USPS OAuth 2.0 API (2026+). Get real-time shipping rates, generate labels, and track packages using the latest USPS Web Tools API v3.
 
@@ -28,7 +28,33 @@ composer require mmedia/usps-oauth-php
 - PHP 8.1 or higher
 - ext-json
 - ext-curl
+- ext-openssl (for HTTPS requests)
+- ext-mbstring (recommended)
 - Valid USPS Business Account with API credentials
+
+### Getting USPS API Credentials
+
+1. Create a USPS Business Account at [USPS.com](https://reg.usps.com/entreg/RegistrationAction_input)
+2. Request API access through the [USPS Web Tools portal](https://www.usps.com/business/web-tools-apis/)
+3. You'll receive a Client ID and Client Secret for OAuth authentication
+
+### Environment Setup
+
+For development and testing, create a `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Add your credentials:
+
+```env
+USPS_CLIENT_ID=your-client-id-here
+USPS_CLIENT_SECRET=your-client-secret-here
+USPS_SANDBOX=true
+```
+
+**Note**: Never commit `.env` to version control. It's already in `.gitignore`.
 
 ## Quick Start
 
@@ -340,12 +366,12 @@ The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
 
 ## Credits
 
-Developed by [M Media Software Lab](https://www.mmediasoftwarelab.com)
+Developed by [M Media](https://www.mmediasoftwarelab.com)
 
 ## Support
 
-- 📧 Email: info@mmediasoftwarelab.com
-- 🐛 Issues: [GitHub Issues](https://github.com/mmedia/usps-oauth-php/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/mmedia/usps-oauth-php/discussions)
-- 💼 Commercial Support: [Contact Sales](mailto:sales@mmediasoftwarelab.com)
-- 📖 Documentation: [Full Documentation](https://docs.mmediasoftwarelab.com/usps-oauth-php)
+- Email: info@mmediasoftwarelab.com
+- Issues: [GitHub Issues](https://github.com/mmediasoftwarelab/usps-oauth-php/issues)
+- Discussions: [GitHub Discussions](https://github.com/mmediasoftwarelab/usps-oauth-php/discussions)
+- Commercial Support: [Contact Sales](mailto:sales@mmediasoftwarelab.com)
+- Documentation: [Full Documentation](https://docs.mmediasoftwarelab.com/usps-oauth-php)

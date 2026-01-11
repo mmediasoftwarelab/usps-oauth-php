@@ -48,17 +48,36 @@ composer run phpcs
 
 ## Integration Tests
 
-Integration tests make real API calls to USPS sandbox environment.
+Integration tests make real API calls to USPS (sandbox or production).
 
 ### Setup
 
-Set environment variables with your USPS API credentials:
+#### 1. Configure Credentials
+
+Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and add your USPS API credentials:
+
+```env
+USPS_CLIENT_ID=your-client-id-here
+USPS_CLIENT_SECRET=your-client-secret-here
+USPS_SANDBOX=true  # Set to false for production testing
+```
+
+**Alternative: Environment Variables**
+
+You can also set these as system environment variables:
 
 **Linux/Mac:**
 
 ```bash
 export USPS_CLIENT_ID="your-client-id"
 export USPS_CLIENT_SECRET="your-client-secret"
+export USPS_SANDBOX="true"
 ```
 
 **Windows (PowerShell):**
@@ -66,6 +85,7 @@ export USPS_CLIENT_SECRET="your-client-secret"
 ```powershell
 $env:USPS_CLIENT_ID="your-client-id"
 $env:USPS_CLIENT_SECRET="your-client-secret"
+$env:USPS_SANDBOX="true"
 ```
 
 **Windows (CMD):**
@@ -73,6 +93,30 @@ $env:USPS_CLIENT_SECRET="your-client-secret"
 ```cmd
 set USPS_CLIENT_ID=your-client-id
 set USPS_CLIENT_SECRET=your-client-secret
+set USPS_SANDBOX=true
+```
+
+#### 2. Configure SSL Certificates (Windows Only)
+
+If you're on Windows and encounter SSL certificate errors, download and configure the CA certificate bundle:
+
+```powershell
+# Download CA certificate bundle
+Invoke-WebRequest -Uri "https://curl.se/ca/cacert.pem" -OutFile "C:\php\cacert.pem"
+
+# Update php.ini to use the certificate bundle
+# Open C:\php\php.ini and add/update these lines:
+curl.cainfo = "C:\php\cacert.pem"
+openssl.cafile = "C:\php\cacert.pem"
+```
+
+Or automatically configure via PowerShell:
+
+```powershell
+$content = Get-Content C:\php\php.ini
+$content = $content -replace ';curl.cainfo =', 'curl.cainfo = "C:\php\cacert.pem"'
+$content = $content -replace ';openssl.cafile=', 'openssl.cafile="C:\php\cacert.pem"'
+Set-Content C:\php\php.ini $content
 ```
 
 ### Run Integration Tests

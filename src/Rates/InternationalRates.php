@@ -7,6 +7,7 @@ namespace MMedia\USPS\Rates;
 use MMedia\USPS\Client;
 use MMedia\USPS\Models\Rate;
 use MMedia\USPS\Enums\InternationalServiceType;
+use MMedia\USPS\Exceptions\ApiException;
 use MMedia\USPS\Exceptions\RateException;
 use MMedia\USPS\Exceptions\ValidationException;
 
@@ -103,7 +104,7 @@ class InternationalRates
                     $destinationPostalCode
                 );
                 $rates[$serviceType->value] = $rate;
-            } catch (RateException $e) {
+            } catch (RateException | ApiException $e) {
                 // Skip services that fail
                 continue;
             }

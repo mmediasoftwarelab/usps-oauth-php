@@ -25,7 +25,8 @@ class DomesticRates
 
     public function __construct(
         private readonly Client $client
-    ) {}
+    ) {
+    }
 
     /**
      * Get shipping rate for a specific service

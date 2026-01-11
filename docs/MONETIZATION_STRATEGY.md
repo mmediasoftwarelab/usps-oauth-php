@@ -433,4 +433,4 @@ This library has significant monetization potential by serving the large PHP e-c
 
 **Last Updated**: January 10, 2026
 **Version**: 1.0
-**Author**: M Media Software Lab
+**Author**: M Media
