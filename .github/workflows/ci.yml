@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        php: ["8.1", "8.2", "8.3"]
+
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: json, curl
+          coverage: xdebug
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHPStan
+        run: composer run phpstan
+
+      - name: Run PHP CodeSniffer
+        run: composer run phpcs
+
+      - name: Run unit tests
+        run: vendor/bin/phpunit --testsuite="USPS OAuth PHP Test Suite" --coverage-clover coverage.xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
+          verbose: true
+
+      - name: Run integration tests (if credentials available)
+        if: ${{ env.USPS_CLIENT_ID != '' }}
+        env:
+          USPS_CLIENT_ID: ${{ secrets.USPS_CLIENT_ID }}
+          USPS_CLIENT_SECRET: ${{ secrets.USPS_CLIENT_SECRET }}
+        run: vendor/bin/phpunit --testsuite integration
+
+  security:
+    runs-on: ubuntu-latest
+    name: Security Check
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Security check
+        run: |
+          composer require --dev roave/security-advisories:dev-latest || true
